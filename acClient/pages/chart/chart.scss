@@ -1,0 +1,194 @@
+.control{
+    width: 100%;
+    height: 150rpx;
+    position: fixed;
+    top: 0rpx;
+    left: 0;
+    background-color: #FFFFFF;
+    z-index: 5;
+}
+
+.uni-fab__circle{
+    width: 100rpx;
+    height: 100rpx;
+}
+.uni-list{
+    width: 100%;
+    height: 75rpx;
+    font-size: 36rpx;
+    text-align: center;
+    font-weight: 400;
+    color: #8a8a8a;
+    line-height: 70rpx;
+    border-bottom: 1rpx solid #efefef;
+    position: fixed;
+    top: 75rpx;
+    z-index: 5;
+    background-color: #FFFFFF;
+}
+.btn{
+    width: 20%;
+    height: 50rpx;
+    font-size: 20rpx;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 120rpx 0 0 120rpx;
+    background-color: rgba($color: #66B3FF, $alpha: 1);
+    position: fixed;
+    top: 255rpx;
+    right: -10rpx;
+    z-index: 5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+// ----------------------------------------------------------------------
+
+.line{
+    width: 92%;
+    height: 30rpx;
+    background-color: opacify($color: #d9d9d9, $amount: 0.3);
+    margin-left: 4%;
+    position: fixed;
+    top: 150rpx;
+    border-radius: 30rpx;
+}
+.line_z{
+    width: 88%;
+    height: 15rpx;
+    background-color: opacify($color: #cfcfcf, $amount: 0.8);
+    margin-left: 6%;
+    position: fixed;
+    top: 160rpx;
+    border-radius: 15rpx;
+    z-index: 10;
+    &::before{
+        content: " ";
+        display: inline-block;
+        width: 100%;
+        height: 15rpx;
+        background-color: opacify($color: #d9d9d9, $amount: 0.3);
+        position: absolute;
+        top: -12rpx;
+    }
+}
+// 图表区
+.chartsShowBox{
+    width: 100%;
+    height:1335rpx;
+    background-color: #ececec;
+    position: relative;
+    margin-top: 10rpx;
+    .midbox{
+        width: 86%;
+        height: 1170rpx;
+        background-color: #FFFFFF;
+        position: absolute;
+        top: 150rpx;
+        left: 7%;
+        background-image:-webkit-gradient(linear,50% 0,0 100%,from(transparent), color-stop(.5,transparent),color-stop(.5,#ececec),to(#ececec)),
+                         -webkit-gradient(linear,50% 0,100% 100%,from(transparent), color-stop(.5,transparent),color-stop(.5,#ececec),to(#ececec));
+        background-image:-moz-linear-gradient(50% 0 -45deg,transparent,transparent 50%,#ececec 50%,#ececec),
+                         -moz-linear-gradient(50% 0 -135deg,transparent,transparent 50%,#ececec 50%,#ececec);                                
+       background-size:30rpx 15rpx;
+       background-repeat:repeat-x;
+       background-position:0 100%;            
+
+    }
+    .income{
+        width: 100%;
+        height: 80rpx;
+        display: flex;
+        line-height: 110rpx;
+        text-align: center;
+        color: #565656;
+        font-size: 26rpx;
+        border-bottom: 10rpx dotted #ececec;
+        .i1,.i2,.i3{
+            display: block;
+            width: 33.3%;
+        }
+        .i2{
+            &::after{
+                content: "￥";
+                color: #FF0000;
+                font-size: 24rpx;
+                padding-left: 5rpx;
+            }
+        }
+        .i3{
+            font-size: 22rpx;
+            display: flex;
+            .i3-text{
+                width: 65%;
+                display: block;
+                margin-top: -2rpx;
+                text-align: right;
+            }
+            .i3-icon{
+                display: block;
+                width: 25%;
+                text-align: center;
+            }
+        }
+        
+    }
+    .chartsArea,.chartsPie{
+        width: 98%;
+        height: 305rpx;
+        // background-color: #FFFFFF;
+        margin-left: 2%;
+        border-bottom: 10rpx dotted #ececec;
+    }
+    .title{
+        width: 100%;
+        height: 80rpx;
+        display: flex;
+        padding-left: 40rpx;
+        line-height: 110rpx;
+        uni-tag{
+            margin-top: 35rpx;
+            margin-left: 50rpx;
+        }
+    }
+    .chartsPie{
+        height: 345rpx;
+    }
+    .areae{
+        width: 100%;
+        height: 270rpx;
+        background-color: #FFFFFF;
+    }
+    .pie{
+        width: 100%;
+        height: 330rpx;
+        background-color: #FFFFFF;
+
+    }
+
+    // 进度条
+    .line-title{
+       width: 100%;
+       height: 60rpx;
+       line-height: 80rpx;
+       text-align: center;
+       color: #9c9c9c;
+       font-size: 24rpx;
+    }
+    .inline{
+        width: 70%;
+        margin: 10rpx 15%;
+        height: 15rpx;
+        border-radius: 15rpx;
+        background-color:#66B3FF;
+        .outline{
+            height: 15rpx;
+            background-color: #FFBB77;
+            border-radius: 15rpx;
+        }
+    }
+}
+
+// -------------------------------------------------------------------------

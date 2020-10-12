@@ -1,0 +1,70 @@
+.content{
+    width: $w-width;
+    height: $w-height;
+    
+    .imgbox{
+        width: $w-width;
+        height: 250rpx;
+        background-color: $uni-color-warning;
+        .img{
+            width: 200rpx;
+            height: 200rpx;
+            border-radius: 200rpx;
+            margin: 25rpx 275rpx;
+            border: 2rpx solid #fff;
+        }
+    }
+    .name{
+        width: $w-width;
+        height: 75rpx;
+        background-color: $uni-color-warning;
+        text-align: center;
+        color: #fff;
+        font-size: 20rpx;
+    }
+    .btnbox{
+        width:100rpx;
+        height: 100rpx;
+        position: fixed;
+        margin: 300rpx 0 0 640rpx;
+        border-radius: 100rpx;
+        box-shadow: 2rpx 2rpx 5rpx #c1c1c1;
+        button[type=default] {
+            color: #fff !important;
+            background-color: #f0ad4e !important;
+        }
+        .btn{
+            width: 100rpx;
+            height: 100rpx;
+            border-radius: 100rpx;
+            line-height: 100rpx;
+            .icon-phone{
+                margin-left: -7rpx;
+            }
+        }
+    }
+    
+    .popup{
+        .dialog{
+            width: 600rpx;
+            height: 400rpx;
+            background-color: $uni-bg-color;
+            color: #8a8a8a;
+            text-align: center;
+            font-size: 24rpx;
+            border-radius: 20rpx;
+            .icon{
+                width: 100rpx;
+                height: 100rpx;
+                margin: 50rpx 250rpx;
+                border: 1rpx solid $uni-color-warning;
+                border-radius: 100rpx;
+            }
+            
+            .text{
+                display: block;
+                padding: 30rpx 50rpx;
+            }
+        }
+    }
+}

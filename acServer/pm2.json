@@ -1,0 +1,15 @@
+{
+  "apps": [{
+    "name": "acServer",
+    "script": "production.js",
+    "cwd": "E:\gradProject\acServer",
+    "exec_mode": "fork",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}

@@ -1,0 +1,39 @@
+.container{
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    .logo{
+        width:100%;
+        height: 50%;
+        .img{
+            width: 250rpx;
+            height: 250rpx;
+            margin: 150rpx 250rpx;
+        }
+    }
+    .dialog {
+        font-size: 30rpx;
+        text-align: center;
+        color: $uni-text-color-grey;
+        width:600rpx;
+        height: $w-width/2;
+        background-color: #fff;
+        border-radius: 10rpx;
+        .icon{
+           width: 100rpx;
+           height: 100rpx;
+           margin: 20rpx 200rpx;
+        }
+        .text{
+            display: block;
+            padding:30rpx 60rpx;
+        }
+    }
+    button[type=default]{
+        background-color: #f0ad4e !important;
+        color: #FFFFFF !important;
+    }
+    button{
+        border-radius: 0 !important;
+    }
+}

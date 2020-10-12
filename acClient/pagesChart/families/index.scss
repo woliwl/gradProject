@@ -1,0 +1,214 @@
+
+.date{
+    width: 96%;
+    height: 80rpx;
+    color: #4b4b4b;
+    font-weight: 400;
+    font-size: 45rpx;
+    line-height: 80rpx;
+    padding-left: 20rpx;
+    margin:30rpx 2%;
+    position: relative;
+ }
+.famlines{
+    width: 35%;
+    height: 40rpx;
+    color: #9c9898;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    text-align: center;
+    border-bottom: 1rpx solid rgba($color: #66B3FF, $alpha: 0.7);
+    position: absolute;
+    left: 35%;
+    top: 49rpx;
+}
+.title{
+    width: 100%;
+    height: 100rpx;
+    background-color: #ececec;
+    line-height: 100rpx;
+    display: flex;
+    color:#9c9c9c;
+    .t1,.t2,.t3{
+        font-size: 24rpx;
+        display: block;
+    }
+    .t1{
+        width: 20%;
+        text-align: center;
+    }
+    .t2{
+        width: 15%;
+        text-align: center;
+    }
+    .t3{
+        width: 60%;
+        font-size: 40rpx;
+        color:#4b4b4b;
+        font-weight: 400rpx;
+        text-align: right;
+        &::before{
+            content: '￥';
+            font-size: 24rpx;
+            color: #FF0000;
+            
+        }
+    }
+}
+.billBox{
+    width: 100%;
+    height: 1200rpx;
+    background-color: #ececec;
+    .list{
+        width: 100%;
+        height: 130rpx;
+        background-color: #FFFFFF;
+        border-bottom: 1rpx solid #ececec;
+        display: flex;
+        line-height: 130rpx;
+        position: relative;
+    }
+    .icon{
+        width: 20%;
+        text-align: center;
+        .iconfont{
+            font-size: 65rpx;
+            color: #4b4b4b;
+        }
+    }
+    .c-spend{
+        width: 25%;
+        text-align: right;
+        color: #4b4b4b;
+        font-size: 36rpx;
+        &::before{
+            content: '￥';
+            font-size: 24rpx;
+            color: #FF0000;
+        }
+    }
+    
+    .classbox{
+      width: 50%;
+      text-align: left;
+      font-size: 24rpx;
+      display: flex;
+      flex-direction: column;
+       .c-text{
+           height: 85rpx;
+           line-height: 70rpx;
+           .t2{
+               font-size: 20rpx;
+               color: #9c9c9c;
+               padding-left: 15rpx;
+           }
+       }
+       .c-line{
+           width: 100%;
+           height: 15rpx;
+           border-radius: 15rpx;
+           .line{
+               height: 15rpx;
+               border-radius: 15rpx;
+           }
+       }
+       .sub{
+           width: 100%;
+           line-height: 25rpx;
+           height: 40rpx;
+           color:#4b4b4b;
+           font-size: 22rpx;
+           margin-top: -10rpx;
+           overflow: hidden;
+           text-overflow:ellipsis; 
+           white-space: nowrap;
+       }
+    }
+    
+    .avatar{
+        width: 5%;
+        .img{
+            position: absolute;
+            top: 2rpx;
+            right: 2rpx;
+            width: 30rpx;
+            height: 30rpx;
+            border-radius: 30rpx;
+        }
+    }
+}
+
+.famBox{
+    width: 600rpx;
+    height: 900rpx;
+    background-color: #FFFFFF;
+    border-radius: 20rpx;
+    
+    .linesBox{
+        width: 96%;
+        height: 140rpx;
+        margin: 20rpx 2%;
+        border: 1rpx solid rgba($color: #ececec, $alpha: 0.7);
+        border-radius: 0 20rpx 0 20rpx;
+        position: relative;
+    }
+    .family-avatar{
+        width: 50%;
+        height: 60rpx;
+        .fam-img{
+            width: 40rpx;
+            height: 40rpx;
+            border-radius: 40rpx;
+            position: absolute;
+            left: 40%;
+            top: 10rpx;
+        }
+    }
+    .family-name{
+        width: 50%;
+        height: 60rpx;
+        text-align: left;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        font-size: 24rpx;
+        color:#4b4b4b;
+        line-height: 60rpx;
+    }
+    .family-line{
+        width: 96%;
+        height: 12rpx;
+        margin: 10rpx 2%;
+        border:  1rpx solid rgba($color: #66B3FF, $alpha: 0.7);
+        border-radius: 12rpx;
+        background-color: #ececec;
+        .family-line-z{
+            height: 12rpx;
+            border-radius: 12rpx;
+            background-color: rgba($color: #66B3FF, $alpha: 0.7);
+        }
+    }
+    .exp{
+        display: flex;
+        font-size: 20rpx;
+        height: 40rpx;
+        line-height: 40rpx;
+        color: #a7a7a7;
+        .e1,.e2{
+            display: block;
+            width: 50%;
+            text-align: center;
+        }
+        .e1{
+           &::after{
+               content: "￥";
+               color: #FF0000;
+               font-size: 20rpx;
+               padding-left: 5rpx;
+           }
+        }
+    }
+}
+
+
+

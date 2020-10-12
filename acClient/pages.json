@@ -1,0 +1,110 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "庭好记"
+		}
+	}    ,{
+            "path" : "pages/main/main",
+            "style" : {
+                "navigationBarTitleText": "账单"
+            }
+        }
+        ,{
+            "path" : "pages/chart/chart",
+            "style" : {"navigationBarTitleText": "图表"}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {"navigationBarTitleText": "搜索"}
+        }
+        ,{
+            "path" : "pages/me/me",
+            "style" : {"navigationBarTitleText": "我的"}
+        }
+    ],
+    "subPackages":[
+        {
+        "root":"pagesFam",
+        "pages":[
+            {
+              "path" : "home/home",
+              "style" : {"navigationBarTitleText": "家庭"}
+            },
+            {
+              "path" : "families/families",
+              "style" : {"navigationBarTitleText": "家人"}
+            }
+          ]
+        },
+        {
+        "root":"pagesChart",
+        "pages":[
+            {
+              "path" : "person/daybillMsg",
+              "style" : {"navigationBarTitleText": "个人支出详情"}
+            },
+            {
+              "path" : "person/classify",
+              "style" : {"navigationBarTitleText": "个人支出分类详情"}
+            },
+            {
+              "path" : "person/income",
+              "style" : {"navigationBarTitleText": "个人收入详情"}
+            },
+            {
+              "path" : "families/income",
+              "style" : {"navigationBarTitleText": "家庭收入详情"}
+            },
+            {
+              "path" : "families/classify",
+              "style" : {"navigationBarTitleText": "家庭支出分类详情"}
+            },
+            {
+              "path" : "families/daybillMsg",
+              "style" : {"navigationBarTitleText": "家庭支出详情"}
+            }
+          ]
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#f0ad4e",
+		"backgroundColor": "#FFFFFF"
+	},
+    
+    "tabBar":{
+        "color": "#8a8a8a",
+        "selectedColor": "#f0ad4e",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "height":"56px",
+        "list":[
+            {
+                "pagePath":"pages/main/main",
+                "iconPath":"static/icon/zd.png",
+                "selectedIconPath":"static/icon/zd_.png",
+                "text":"账单"
+            },
+            {
+                "pagePath":"pages/chart/chart",
+                "iconPath":"static/icon/tb.png",
+                "selectedIconPath":"static/icon/tb_.png",
+                "text":"图表"
+            },
+            {
+                "pagePath":"pages/search/search",
+                "iconPath":"static/icon/ss.png",
+                "selectedIconPath":"static/icon/ss_.png",
+                "text":"搜索"
+            },
+            {
+                "pagePath":"pages/me/me",
+                "iconPath":"static/icon/me.png",
+                "selectedIconPath":"static/icon/me_.png",
+                "text":"我的"
+            }
+        ]
+    }
+   
+}

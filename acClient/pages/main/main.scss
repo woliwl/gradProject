@@ -1,0 +1,766 @@
+.control{
+    width: 100%;
+    height: 150rpx;
+    position: fixed;
+    top: 0rpx;
+    left: 0;
+    z-index: 5;
+    background-color: #FFFFFF;
+}
+.uni-list{
+    width: 100%;
+    height: 70rpx;
+    font-size: 36rpx;
+    text-align: center;
+    font-weight: 400;
+    color: #8a8a8a;
+    line-height: 70rpx;
+    border-bottom: 1rpx solid #efefef;
+    position: fixed;
+    top: 0rpx;
+    z-index: 5;
+    background-color: #FFFFFF;
+}
+// day---create
+.createIn,.createOut{
+  width: 80rpx;
+  height: 60rpx;
+  position: fixed;
+  right: 0;
+  top:200rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 100rpx 0 0 100rpx;
+  box-shadow: 1rpx 1rpx 10rpx #d1d1d1;
+  color: #fff;
+  font-size: 33rpx;
+  z-index: 5;
+}
+.createIn{
+   background-color: rgba($color: #66B3FF, $alpha: 1); 
+   top:80rpx;
+}
+.createOut{
+    background-color: rgba($color: #FFBB77, $alpha: 1);
+    top:160rpx;
+}
+
+// day---panel
+.panel{
+    width: 600rpx;
+    height: 600rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    font-size: 28rpx;
+    position: relative;
+    .form_box{
+        width: 500rpx;
+        height: 500rpx;
+        position: absolute;
+        left: 50rpx;
+        top: 50rpx;
+    }
+    .time_input{
+        display: flex;
+        color: #8a8a8a;
+        height: 54rpx;
+        border-bottom: 1rpx solid #f5f5f5;
+        text-align: center;
+        .inputtit{
+            width: 30%;
+            text-align: center;
+            height: 54rpx;
+            line-height: 48rpx;
+            font-weight: 400;
+        }
+    }
+   
+    .icon_select{
+      margin-top: 40rpx;
+      height: 54rpx;
+      display: flex;
+      font-weight: 400;
+      line-height: 54rpx;
+      border-bottom: 1rpx solid #f5f5f5;
+      .text{
+          color: #8a8a8a;
+          margin-right: 40rpx;
+          margin-left: 40rpx;
+      }
+      .select_text{
+          color:rgba($color: #66B3FF, $alpha: 0.6);
+      }
+      .select_text_org{
+          color:rgba($color: #FFBB77, $alpha: 0.6);
+      }
+      input{
+          color: #8a8a8a;
+          margin-top: 5rpx;
+      }
+    }
+    .createbtn{
+       margin-top: 50rpx;
+       button{
+           color: #fff;
+           font-size: 30rpx;
+           background-color:rgba($color: #66B3FF, $alpha: 0.5) ;
+       }
+       .wechatSI{
+           width: 60rpx;
+           height: 60rpx;
+           margin: 20rpx 220rpx;
+           .wechatimg{
+               width: 60rpx;
+               height: 60rpx;
+           }
+       }
+    }
+    .btn_org{
+        margin-top: 55rpx;
+        button{
+            color: #fff;
+            font-size: 30rpx;
+            background-color:rgba($color: #FFBB77, $alpha: 0.5) ;
+        }
+    }
+}
+
+// 统计收支
+.countSum{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    font-size: 28rpx;
+    font-weight: 400;
+    line-height: 135rpx;
+    position: fixed;
+    top: 70rpx;
+    background-color: #FFFFFF;
+    z-index: 4;
+    .inSum,.outSum{
+        width: 50%;
+        text-align: left;
+        text{
+            margin-left: 40rpx;
+            &::after{
+                content: '¥';
+                color: rgba($color: #FF0000, $alpha: 0.5);
+                margin-left: 5rpx;
+            }
+        }
+    }
+}
+
+// 获取账务列表
+.bill_list{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 200rpx;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    .steps{
+       display: flex; 
+       height: 248rpx;
+       &:last-child{
+           overflow: hidden;
+           .steps-status{
+               .status-lint:last-of-type{
+                   display: none;
+               }
+           }
+       }
+       .steps-status{
+         margin-right: 15rpx;
+         position: relative; 
+         .status-dot{
+            width: 80rpx;
+            height: 80rpx;
+            font-size: 24rpx;
+            font-family: PingFang SC;
+            font-weight: bold;
+            line-height: 80rpx;
+            border: 4rpx solid rgba($color: #FB9B5E, $alpha: 0.8);
+            border-radius: 100%;
+            text-align: center;
+         }
+         .status-lint{
+            margin: 0 auto;
+            width: 4rpx;
+            height: 160rpx;
+            background: #FB9B5E; 
+         }
+       }
+     
+       .steps-content{
+           width: 90%;
+           max-height: 200rpx;
+           // border-radius: 0 30rpx 0 30rpx;
+           margin-top: 20rpx;
+           // box-shadow: 1rpx 1rpx 10rpx #eaeaea;
+       }
+     }
+     
+    scroll-view{
+        .colorin{
+           color:rgba($color: #66B3FF, $alpha: 0.6);
+        }
+        .colorout{
+           color:rgba($color: #FFBB77, $alpha: 0.6);
+        }
+        .borin{
+            border: 1rpx solid rgba($color: #66B3FF, $alpha: 0.3);
+        }
+        .borout{
+            border: 1rpx solid rgba($color: #FFBB77, $alpha: 0.3);
+        }
+        .content{
+            width: 96%;
+            height: 100rpx;
+            border-radius: 0 20rpx 0 20rpx;
+            box-shadow: 1rpx 1rpx 10rpx #ebebeb;
+            margin-bottom: 20rpx;
+            z-index: 0;
+            font-size: 24rpx;
+            position: relative;
+            background-color:#ebebeb;
+            
+            .usermsg{
+                height: 30rpx;
+                position: absolute;
+                top: 10rpx;
+                right: 10rpx;
+                font-size: 20rpx;
+                color: #8a8a8a;
+                font-weight: 400;
+                text-align: right;
+                .img{
+                    width: 30rpx;
+                    height: 30rpx;
+                    border-radius: 30rpx;
+                    margin-left: 10rpx;
+                }
+                .text{
+                    padding-top: -5rpx;
+                    display: block;
+                    float: left;
+                }
+            }
+            .icons,.iconfont{
+               font-size: 20rpx; 
+               margin: 10rpx 10rpx;
+            }
+            .del{
+                width: 20rpx;
+                height: 20rpx;
+                color:rgba($color: #FF0000, $alpha: 0.6);
+                position: absolute;
+                top: 0rpx;
+                right: 22rpx;
+            }
+            .spend{
+                position: absolute;
+                top: 60rpx;
+                left: 20rpx;
+                font-size: 24rpx;
+                &::after{
+                    content: '¥';
+                    color: rgba($color: #FF0000, $alpha: 0.5);
+                    margin-left: 5rpx;
+                }
+            }
+            .sub{
+               position: absolute;
+               max-width:320rpx ;
+               top: 60rpx;
+               left: 186rpx;
+               overflow: hidden;
+               text-overflow: ellipsis;
+               white-space: nowrap;
+           }
+         
+        }
+    }
+    
+    // 月
+    .billcontent{
+        width: 98%;
+        height: 225rpx;
+        border-radius: 0 20rpx 0 20rpx;
+        box-shadow: 1rpx 1rpx 10rpx #ebebeb;
+        background-color:#f3f3f3;
+        z-index: 0;
+        font-size: 24rpx;
+         
+        .mcontent{
+            display: flex;
+            position: relative;
+            .iconfont{
+                font-size: 20rpx;
+                margin: 10rpx 0rpx 0 10rpx;
+            }
+            .icons{
+                font-size: 24rpx; 
+                margin: 10rpx 0rpx 0 10rpx;
+             }
+             .spend{
+                 position: absolute;
+                 top: 10rpx;
+                 left: 140rpx;
+                 font-size: 24rpx;
+                 &::after{
+                     content: '¥';
+                     color: rgba($color: #FF0000, $alpha: 0.5);
+                     margin-left: 5rpx;
+                 }
+             }
+             .sub{
+                position: absolute;
+                max-width:260rpx ;
+                top: 10rpx;
+                left: 280rpx;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        
+        // 家庭月
+        .fmcontent{
+            display: flex;
+            position: relative;
+            height: 50rpx;
+            background-color: #fff;
+            width: 95%;
+            margin-left: 10rpx;
+            border-radius: 80rpx 0 0 80rpx;
+            margin-top: 40rpx;
+          
+            .user{
+                width: 50rpx;
+                height: 50rpx;
+                border-radius: 50rpx;
+                .img{
+                    width: 40rpx;
+                    height: 40rpx;
+                    border-radius: 40rpx;
+                    margin: 5rpx 5rpx;
+                }
+            }
+            .iconfont{
+                font-size: 18rpx;
+            }
+            .icons{
+                font-size: 20rpx;
+                position: absolute;
+                top: -27rpx;
+                left: -5rpx;
+             }
+            .icon,.iconfont{
+                height: 30rpx;
+                margin: 10rpx 0rpx 0 10rpx;
+                line-height: 30rpx;
+                font-weight: 400rpx;
+            }
+            .spend{
+                height: 50rpx;
+                font-size: 20rpx;
+                line-height: 50rpx;
+                margin: 0 40rpx;
+                &::after{
+                    content: '¥';
+                    color: rgba($color: #FF0000, $alpha: 0.5);
+                    margin-left: 5rpx;
+                }
+            }
+            .sub{
+                height: 50rpx;
+                font-size: 20rpx;
+                line-height: 50rpx;
+                max-width:260rpx ;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        
+    }
+    .colorin{
+       color:rgba($color: #66B3FF, $alpha: 0.6);
+    }
+    .colorout{
+       color:rgba($color: #FFBB77, $alpha: 0.6);
+    }
+    .borin{
+        border: 1rpx solid rgba($color: #66B3FF, $alpha: 0.3);
+    }
+    .borout{
+        border: 1rpx solid rgba($color: #FFBB77, $alpha: 0.3);
+    }
+    
+    // 年
+    .ycontent{
+        width: 98%;
+        height: 160rpx;
+        border-radius: 0 20rpx 0 20rpx;
+        box-shadow: 1rpx 1rpx 10rpx #ebebeb;
+        background-color:#ebebeb;
+        z-index: 0;
+        font-size: 24rpx;
+        
+        .text{
+            margin: 7rpx 10rpx;
+            .t1{
+                margin-right: 20rpx;
+                &::after{
+                    content: '¥';
+                    color: rgba($color: #FF0000, $alpha: 0.5);
+                    margin-left: 5rpx;
+                }
+            }
+        }
+        .progressIn,.progressOut{
+            width: 90%;
+            height: 25rpx;
+            border-radius: 10rpx;
+            margin-left: 5%;
+            margin-bottom: 15rpx;
+        }
+        .line{
+            height: 25rpx;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 10rpx;
+            line-height: 25rpx;
+            font-size: 20rpx;
+        }
+        .In{
+            background-color:rgba($color: #66B3FF, $alpha: 0.6) ;
+        }
+        .out{
+            background-color:rgba($color: #FFBB77, $alpha: 0.6);
+        }
+    }
+    
+    // 家庭年
+    .fycontent{
+        width: 98%;
+        height: 225rpx;
+        border-radius: 0 20rpx 0 20rpx;
+        box-shadow: 1rpx 1rpx 10rpx #ebebeb;
+        background-color:#f3f3f3;
+        z-index: 0;
+        font-size: 24rpx;
+        .concent{
+            width: 95%;
+            height: 160rpx;
+            border-radius: 0 10rpx 0 10rpx;
+            box-shadow: 1rpx 1rpx 10rpx #ebebeb;
+            background-color:#ffffff;
+            z-index: 0;
+            font-size: 24rpx;
+            margin: 10rpx 10rpx;
+            position: relative;
+            .userat{
+                width: 40rpx;
+                height: 40rpx;
+                border-radius: 40rpx;
+                position:absolute;
+                top: -5rpx;
+                left:-5rpx;
+                .img{
+                    width: 40rpx;
+                    height: 40rpx;
+                    border-radius: 40rpx;
+                }
+            }
+            .userna{
+                height: 30rpx;
+                position: absolute;
+                left: 45rpx;
+                top: 0rpx;
+                line-height: 30rpx;
+                font-weight: 400;
+                font-size: 15rpx;
+            }
+            
+            .text{
+                height: 55rpx;
+                line-height: 70rpx;
+                font-size: 22rpx;
+                width: 100%;
+                text-align: center;
+                .t1{
+                    margin-right: 20rpx;
+                    &::after{
+                        content: '¥';
+                        color: rgba($color: #FF0000, $alpha: 0.5);
+                        margin-left: 5rpx;
+                    }
+                }
+            }
+            .progressIn,.progressOut{
+                width: 90%;
+                height: 15rpx;
+                border-radius: 10rpx;
+                margin-left: 5%;
+                background-color: #f8f8f8;
+            }
+            .line{
+                height: 15rpx;
+                color: #FFFFFF;
+                text-align: center;
+                border-radius: 10rpx;
+                line-height: 15rpx;
+                font-size: 15rpx;
+            }
+            .In{
+                background-color:rgba($color: #66B3FF, $alpha: 0.6) ;
+            }
+            .out{
+                background-color:rgba($color: #FFBB77, $alpha: 0.6);
+            }
+            .borin{
+                border: 1rpx solid rgba($color: #66B3FF, $alpha: 0.3);
+            }
+            .borout{
+                border: 1rpx solid rgba($color: #FFBB77, $alpha: 0.3);
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+
+// 家庭列表
+.btn{
+    width: 20%;
+    height: 50rpx;
+    font-size: 20rpx;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 120rpx 0 0 120rpx;
+    background-color: rgba($color: #66B3FF, $alpha: 0.8);
+    position: fixed;
+    top: 150rpx;
+    right: -10rpx;
+    z-index: 5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+@keyframes movein {
+    0% {right: -30%;}
+    100%{right: 0rpx;}
+}
+
+.famMenw{
+    width: 30%;
+    height: 65%;
+    position: fixed;
+    top: 200rpx;
+    right: 0;
+    box-shadow: 2rpx 4rpx 10rpx #66B3FF;
+    border-radius: 20rpx 0 0 20rpx;
+    background-color: #FFFFFF;
+    animation: movein 0.5s ease;
+    .famlist{
+        width: 90%;
+        height: 80rpx;
+        margin-left: 10rpx;
+        border-bottom: 1rpx solid rgba($color: #FFBB77, $alpha: 0.8);
+        text-align: left;
+        padding-left: 20rpx;
+        line-height: 80rpx;
+        font-size: 24rpx;
+        color: #3e3e3e;
+        font-weight: 400;
+        border-radius: 20rpx;
+        .text{
+            display: block;
+            width: 85%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .active{
+        background-color: rgba($color: #FFBB77, $alpha: 0.8);
+        color: #FFFFFF;
+    }
+}
+
+
+// 年
+.gdp{
+    width:120rpx;
+    height: 40rpx;
+    background-color: rgba($color: #FFBB77, $alpha: 0.8);
+    color: #FFFFFF;
+    margin-left: 30rpx;
+    box-shadow: 1rpx 2rpx 8rpx #e8e8e8;
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 20rpx;
+    position: absolute;
+    top: 165rpx;
+    left: 160rpx;
+ }
+ 
+ .gdp-menw{
+     width: 700rpx;
+     height: 800rpx;
+     background-color:#FFFFFF;
+     border-radius: 20rpx;
+     .text{
+         width: 100%;
+         height: 50rpx;
+         color: #3e3e3e;
+         font-size: 30rpx;
+         font-weight: 400;
+         text-align: center;
+         line-height: 50rpx;
+     }
+     .concent{
+         width: 600rpx;
+         height: 200rpx;
+         border-radius: 0 20rpx 0 20rpx;
+         box-shadow: 1rpx 1rpx 10rpx #ebebeb;
+         background-color:#ebebeb;
+         z-index: 0;
+         font-size: 24rpx;
+         margin: 50rpx 50rpx;
+         position: relative;
+     }
+     .userat{
+         width: 60rpx;
+         height: 60rpx;
+         border-radius: 60rpx;
+         position:absolute;
+         top: -30rpx;
+         left:-30rpx;
+         .img{
+             width: 60rpx;
+             height: 60rpx;
+             border-radius: 60rpx;
+         }
+     }
+     .userna{
+         height: 30rpx;
+         position: absolute;
+         left: 36rpx;
+         top: -25rpx;
+         line-height: 30rpx;
+         font-weight: 400;
+         font-size: 18rpx;
+     }
+     
+     .text{
+         font-size: 22rpx;
+         margin: 0rpx 10rpx 0 10rpx;
+         .t1{
+             margin-right: 20rpx;
+             &::after{
+                 content: '¥';
+                 color: rgba($color: #FF0000, $alpha: 0.5);
+                 margin-left: 5rpx;
+             }
+         }
+     }
+     .progressIn,.progressOut{
+         width: 90%;
+         height: 25rpx;
+         border-radius: 10rpx;
+         margin-left: 5%;
+         background-color: #f8f8f8;
+     }
+     .line{
+         height: 25rpx;
+         color: #FFFFFF;
+         text-align: center;
+         border-radius: 10rpx;
+         line-height: 25rpx;
+         font-size: 20rpx;
+     }
+     .In{
+         background-color:rgba($color: #66B3FF, $alpha: 0.6) ;
+     }
+     .out{
+         background-color:rgba($color: #FFBB77, $alpha: 0.6);
+     }
+     .borin{
+         border: 1rpx solid rgba($color: #66B3FF, $alpha: 0.3);
+     }
+     .borout{
+         border: 1rpx solid rgba($color: #FFBB77, $alpha: 0.3);
+     }
+     .colorin{
+        color:rgba($color: #66B3FF, $alpha: 0.6);
+     }
+     .colorout{
+        color:rgba($color: #FFBB77, $alpha: 0.6);
+     }
+     
+     // 显示列表详情
+     .fmcontent{
+         display: flex;
+         position: relative;
+         height: 80rpx;
+         background-color: #fff;
+         width: 95%;
+         margin-left: 10rpx;
+         border-radius: 80rpx 0 0 80rpx;
+         margin-top: 40rpx;
+         border: 1rpx solid #DDDDDD;
+         .user{
+             width: 80rpx;
+             height: 80rpx;
+             border-radius: 80rpx;
+             .img{
+                 width: 70rpx;
+                 height: 70rpx;
+                 border-radius: 70rpx;
+                 margin: 5rpx 5rpx;
+             }
+         }
+         .iconfont{
+             font-size: 20rpx;
+         }
+         .icons{
+             font-size: 24rpx;
+             position: absolute;
+             top: -32rpx;
+             left: 0rpx;
+          }
+         .icon,.iconfont{
+             height: 30rpx;
+             margin: 10rpx 0rpx 0 10rpx;
+             line-height: 30rpx;
+             font-weight: 400rpx;
+         }
+         .spend{
+             height: 80rpx;
+             font-size: 24rpx;
+             line-height: 80rpx;
+             margin-left: 60rpx;
+             margin-right: 40rpx;
+             &::after{
+                 content: '¥';
+                 color: rgba($color: #FF0000, $alpha: 0.5);
+                 margin-left: 5rpx;
+             }
+         }
+         .sub{
+             height: 80rpx;
+             font-size: 20rpx;
+             line-height: 80rpx;
+             max-width:350rpx ;
+             overflow: hidden;
+             text-overflow: ellipsis;
+             white-space: nowrap;
+         }
+     }
+     
+ }

@@ -1,0 +1,142 @@
+.concent{
+    position: relative;
+    .form_box{
+        width: 100%;
+        height: 125rpx;
+        background-color: #FFFFFF;
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        .uni-input{
+            height: 80rpx;
+            min-height: 80rpx;
+            border: 1rpx solid #DDDDDD;
+            width: 85%;
+            border-radius: 80rpx;
+            text-align: center;
+            font-size: 26rpx;
+            color: #474747;
+            position: fixed;
+            top: 20rpx;
+            left: 12rpx;
+            background-color: #ececec;
+            z-index: 999;
+        }
+        .btn{
+            position: fixed;
+            width: 80rpx;
+            height: 80rpx;
+            line-height: 80rpx;
+            padding: 0 0;
+            top: 20rpx;
+            right: 12rpx;
+            border-radius: 80rpx;
+            box-sizing: 0;
+            background-color: #f0ad4e;
+            box-shadow: 1rpx 1rpx 5rpx #dadada;
+            z-index: 999;
+        }
+    }
+    
+}
+
+.searchRes{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 140rpx;
+    z-index: 0;
+    background-color: #ececec;
+    .perlist{
+        height: 100rpx;
+        box-shadow: 1rpx 1rpx 5rpx #ececec;
+    }
+    .famlist{
+        height: 130rpx;
+        box-shadow: 1rpx 1rpx 5rpx #ececec;
+    }
+    .perlist,.famlist{
+        width: 90%;
+        border-radius: 20rpx;
+        border: 1rpx solid #DDDDDD;
+        margin-left: 5%;
+        margin-bottom: 15rpx;
+        position: relative;
+        .sfamName{
+            width: 90%;
+            height: 20rpx;
+            color: #3e3e3e;
+            font-size: 20rpx;
+            font-weight: 400;
+            margin-left: 20rpx;
+            padding-left: 10rpx;
+            line-height: 20rpx;
+            border-left:4rpx solid #66B3FF;
+            margin-top: 10rpx;
+        }
+        .icons{
+            width: 96%;
+            height: 30rpx;
+            font-size: 24rpx;
+            margin-left: 5%;
+            margin-top: 10rpx;
+            .iconfont{font-size: 20rpx;}
+        }
+        .date{
+           width: 96%;
+           height: 30rpx;
+           font-size: 24rpx;
+           margin-top: -30rpx;
+           margin-left: 180rpx;
+        }
+        .spend,.sub{
+            margin-left: 5%;
+            height: 30rpx;
+            font-size: 24rpx;
+            line-height: 30rpx;
+            color: #333333;
+            margin-top: 12rpx;
+        }
+        .spend{
+            &::after{
+                content: '¥';
+                color: rgba($color: #FF0000, $alpha: 0.5);
+                margin-left: 5rpx;
+            }
+        }
+        .sub{
+            margin-top: -30rpx;
+            margin-left: 180rpx;
+        }
+        .usermsg{
+            height: 30rpx;
+            position: absolute;
+            top: 10rpx;
+            right: 10rpx;
+            font-size: 20rpx;
+            color: #8a8a8a;
+            font-weight: 400;
+            text-align: right;
+            .img{
+                width: 30rpx;
+                height: 30rpx;
+                border-radius: 30rpx;
+                margin-left: 10rpx;
+            }
+            .text{
+                padding-top: -5rpx;
+                display: block;
+                float: left;
+            }
+        }
+        
+        
+        .colorin{
+           color:rgba($color: #66B3FF, $alpha: 0.6);
+        }
+        .colorout{
+           color:rgba($color: #FFBB77, $alpha: 0.6);
+        }
+    }
+}
