@@ -41,6 +41,36 @@ module.exports = class extends Base {
       }
   }
   
+  // 记录债务
+  async createDebtsAction() {
+      let data = this.post()
+      //随机生成一个不重复的字符串作为账单id
+      function randomString(length) {
+        var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var result = '';
+        for (var i = length; i > 0; --i) 
+          result += str[Math.floor(Math.random() * str.length)];
+        return result;
+      }
+      let id = {id:randomString(10)}
+      let perdebt = Object.assign(data,id)
+      await this.model('person_debt').add(perdebt)
+      // 判断该用户是否创建/加入家庭，是则上传至家庭账单
+      let openid = {openid:data.openid}
+      let res = await this.model('families').where(openid).select()
+      if (res.length == 0) {
+          console.log("该用户没有家庭，无需上传家庭账单")
+      } else{
+          let famdebtArr = []
+          for(let i=0;i<res.length;i++){
+              let famNum = {famNum:res[i].famNum}
+              let famdebt = Object.assign(famNum,perdebt)
+              famdebtArr.push(famdebt)
+          }
+          await this.model('families_debt').addMany(famdebtArr)
+      }
+  }
+  
   // 获取个人账单
   async personBillAction(){
       let data = this.post()
@@ -58,6 +88,13 @@ module.exports = class extends Base {
           perBill.push(obj)
       }
       return this.json(perBill)
+  }
+  
+  // 获取个人债务
+  async personDebtsAction(){
+      let data = this.post()
+      let list = await this.model('person_debt').where(data).order('type ASC,date DESC').select()
+      return this.json(list)
   }
   
   // 编辑个人账单

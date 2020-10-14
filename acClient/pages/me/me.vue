@@ -12,7 +12,8 @@
                 <uni-list-item :show-extra-icon="true" :extra-icon="home" 
                 title="我的家庭" @click="goFamilies()"></uni-list-item>
                 <uni-list-item :show-extra-icon="true" :extra-icon="star" 
-                title="我的负债" @click="myDebts()"></uni-list-item>
+                title="我的债务" @click="myDebts()" :show-badge="true" 
+                badge-text="12" badgeType="error"></uni-list-item>
                 <uni-list-item :show-extra-icon="true" :extra-icon="help" 
                 title="关于小程序" @click="about()"></uni-list-item>
                 <!-- <uni-list-item title="默认 navigateTo 方式跳转页面" link to="/pages/vue/index/index" @click="onClick($event,1)" ></uni-list-item> -->
@@ -61,8 +62,14 @@
             about(){
                  this.$refs.popup.open()
             },
+            // 1.定义为我的债务
+            // 2.填写我的债务选择分类（借入、借出）
+            // 3.借入：从哪借入？设置还款日期，到期提醒，还款成功后存为历史记录（可删）
+            // 4.借出：借给谁的？设置对方提出的还款日期，同上
             myDebts(){
-                console.log("如何设计我的负债？")
+                uni.navigateTo({
+                    url:"../../pagesDebts/index"
+                })
             }
         },
         onLoad() {

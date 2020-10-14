@@ -16,7 +16,7 @@
 		
         <!-- 内容 -->
         <view class="content">
-            <person v-if="current === 0" :piestyle="piestyle"></person>
+            <person v-if="current === 0" ></person>
             <families v-if="current === 1"></families>
         </view>        
 	</view>
@@ -51,7 +51,6 @@
 				       active: false
 				    }
 				],
-                piestyle:450,
                 touchStartTime:0,
 			};
 		},

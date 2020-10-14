@@ -112,7 +112,7 @@ export default {
         
         // 区域图
         showArea(canvasId,chartData){
-           canvaArea=new uCharts({
+           canvaArea = new uCharts({
                $this:_self,
                canvasId: canvasId,
                type: 'area',

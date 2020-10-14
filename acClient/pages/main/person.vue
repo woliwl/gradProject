@@ -11,12 +11,17 @@
             </view>
         </view>
         
-        <!-- 创建账务-->
-        <view class="createIn" @click="createIn">收</view>
-        <view class="createOut" @click="createOut">支</view>
+        <view class="selectBtn sbtn1" @click="selectShow">记账</view>
         
         <!-- 弹出页面 -->
         <view class="create_popup">
+            <!-- 选择账务面板 -->
+            <uni-popup ref="select" type="center">
+                <view class="selectPanel">
+                    <view class="se-pan-btn spbtn1" @click="createIn">记录收入</view>
+                    <view class="se-pan-btn spbtn2" @click="createOut">记录支出</view>
+                </view>
+            </uni-popup>
             <!-- 收 -->
             <uni-popup ref="createIn" type="center">
                 <view class="panel">
@@ -95,7 +100,6 @@
                    </view>
                 </view>
             </uni-popup>
-            
             <!-- 编辑页面 -->
             <uni-popup ref="editbill" type="center">
                 <view class="panel">
@@ -144,6 +148,7 @@
                    </view>
                 </view>
             </uni-popup>
+            
         </view>
         
         <!-- 统计今日收支 -->
@@ -196,12 +201,9 @@
     import uniIcons from "@/components/uni-icons/uni-icons.vue"
     import uniPopup from '@/components/uni-popup/uni-popup.vue'
     import getTime from '../../common/currentDate.js'
-    var plugin = requirePlugin("WechatSI")
-    var manager = plugin.getRecordRecognitionManager()
-    
+    import uniDrawer from "@/components/uni-drawer/uni-drawer.vue"    
 export default {
-    
-    components: {uniIcons,uniPopup},
+    components: {uniIcons,uniPopup,uniDrawer},
     data() {
         const currentDate = getTime.dateDay({
            format: true
@@ -222,10 +224,7 @@ export default {
             billdata:[],
             inSum:0,
             outSum:0,
-            inImg:"../../../static/icon/sj_.png",
-            outImg:"../../../static/icon/sj.png",
             editObj:{},
-            
             // 语音转文本
             recordState:false
         };
@@ -238,7 +237,10 @@ export default {
            return getTime.dateDay('end');
        } 
     },
-    methods:{      
+    methods:{   
+       selectShow(){
+           this.$refs.select.open()
+       },
        bindDateChange(e){
            this.date = e.target.value
            this.inSum = 0
@@ -250,52 +252,6 @@ export default {
        },
        edittime(e){
          this.editObj.time = e.target.value  
-       },
-       // 开始录音
-       touchStart(e){
-           this.recordState = true
-           uni.showToast({
-              title:"正在说话...",
-              icon:"none"
-           })
-           manager.start({  
-              lang: "zh_CN"  
-           })
-       },
-       // 结束录音
-       touchEnd(){
-           this.recordState = false
-           manager.stop(); 
-       },
-       // 识别语音 初始化
-       initRecord(){
-           manager.onRecognize(res =>{
-               console.log(res)
-           })
-           // 正常开始录音
-           manager.onStart(res =>{
-               console.log("成功开始语音识别",res)
-           })
-           // 识别错误事件
-           manager.onError(err =>{
-               console.log("err msg" ,res)
-           })
-           // 识别结束
-           manager.onStop(res =>{
-               console.log('-----结束录音-----')
-               console.log('录音临时文件地址 -->' + res.tempFilePath); 
-               console.log('录音总时长 -->' + res.duration + 'ms'); 
-               console.log('文件大小 --> ' + res.fileSize + 'B');
-               console.log('语音内容 --> ' + res.result);
-               if(res.result == ''){
-                   uni.showToast({
-                       title:"听不清楚嗷，请重新说一遍嘛！",
-                       icon:"none"
-                   })
-               }
-               let text = this.billsub + res.result
-               this.billdata = text
-           })
        },
        
        // 记账面板打开
@@ -340,7 +296,7 @@ export default {
                    spend:e.detail.value.spend
                }
                let param = Object.assign(this.user,formdata,classid)
-               console.log(param)
+               // console.log(param)
                this.$myRequest({
                    method:'POST',
                    url:"/bill/person/createBill",
@@ -565,14 +521,13 @@ export default {
                   })
               }
           })
-      }
-      
-      
+      },
+          
     },
     
     mounted() {
        this.getPersonBill()
-       this.initRecord()
+       // this.initRecord()
     }
 };
 </script>

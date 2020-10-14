@@ -22,30 +22,49 @@
     background-color: #FFFFFF;
 }
 // day---create
-.createIn,.createOut{
-  width: 80rpx;
-  height: 60rpx;
-  position: fixed;
-  right: 0;
-  top:200rpx;
-  text-align: center;
-  line-height: 60rpx;
-  border-radius: 100rpx 0 0 100rpx;
-  box-shadow: 1rpx 1rpx 10rpx #d1d1d1;
-  color: #fff;
-  font-size: 33rpx;
-  z-index: 5;
-}
-.createIn{
-   background-color: rgba($color: #66B3FF, $alpha: 1); 
-   top:80rpx;
-}
-.createOut{
-    background-color: rgba($color: #FFBB77, $alpha: 1);
-    top:160rpx;
+.selectBtn{
+    width: 100rpx;
+    height: 50rpx;
+    position: fixed;
+    right: -10rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 100rpx 0 0 100rpx;
+    box-shadow: 1rpx 1rpx 10rpx #d1d1d1;
+    color: #fff;
+    font-size: 33rpx;
+    z-index: 5;
+    top:130rpx;
+    font-size: 20rpx;
+    letter-spacing: 10rpx;
+    background-color: rgba($color: #66B3FF, $alpha: 1);
 }
 
 // day---panel
+.selectPanel{
+    width: 500rpx;
+    height: 300rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .se-pan-btn{
+        width: 90%;
+        height: 100rpx;
+        margin-left: 5%;
+        line-height: 100rpx;
+        text-align: center;
+        color: #FFFFFF;
+        border-radius: 100rpx;
+    }
+    .spbtn1{
+        background-color: rgba($color: #66B3FF, $alpha: 0.8);
+    }
+    .spbtn2{
+        background-color: rgba($color: #FFBB77, $alpha: 0.8);
+    }
+}
 .panel{
     width: 600rpx;
     height: 600rpx;
@@ -74,7 +93,9 @@
             font-weight: 400;
         }
     }
-   
+   .colorRed{
+       color: rgba($color: #ff0000, $alpha: 0.6);
+   }
     .icon_select{
       margin-top: 40rpx;
       height: 54rpx;
