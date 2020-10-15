@@ -39,10 +39,10 @@ exports.model = {
     database: 'bill',
     prefix: '',
     encoding: 'utf8',
-    host: '127.0.0.1',
+    host: '47.98.197.112',
     port: '',
     user: 'root',
-    password: '123456',
+    password: 'mySql20201015',
     dateStrings: true
   }
 };
