@@ -52,12 +52,6 @@
                                <input type="text" placeholder="补充账单细节~" :value="billsub" name="billsub"/>
                            </view>
                            <view class="createbtn">
-                               <view class="wechatSI" @touchstart="touchStart()" @touchend="touchEnd()">
-                                   <image v-if="recordState == false" class="wechatimg"
-                                   src="../../static/icon/yy.png" mode="aspectFill"></image>
-                                   <image v-else src="../../static/icon/yy_.png" class="wechatimg"
-                                   mode="aspectFill"></image>
-                               </view>
                                <button form-type="submit">确定</button>
                            </view>
                         </form>
@@ -257,13 +251,13 @@ export default {
        // 记账面板打开
        createIn(){
            this.$refs.createIn.open()
-           this.initRecord()
            // 获取收入图标
            this.$myRequest({
                method:'GET',
                url:"/bill/person/getIconsIn"
            }).then(res =>{
                this.iconsIn = res.data
+               console.log(res.data)
            })
        },
        createOut(){
@@ -274,6 +268,7 @@ export default {
                url:"/bill/person/getIconsOut"
            }).then(res =>{
                this.iconsOut = res.data
+               console.log(res.data)
            })
        },
        iconsChange(e){
