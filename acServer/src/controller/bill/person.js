@@ -67,7 +67,7 @@ module.exports = class extends Base {
               let famdebt = Object.assign(famNum,perdebt)
               famdebtArr.push(famdebt)
           }
-          await this.model('families_debt').addMany(famdebtArr)
+          // await this.model('families_debt').addMany(famdebtArr)
       }
   }
   
@@ -93,8 +93,13 @@ module.exports = class extends Base {
   // 获取个人债务
   async personDebtsAction(){
       let data = this.post()
-      let list = await this.model('person_debt').where(data).order('type ASC,date DESC').select()
+      let list = await this.model('person_debt').where(data).order('date DESC').select()
       return this.json(list)
+  }
+  // 更新债务状态
+  async debtStatusAction(){
+      let data = this.post()
+      let list = await this.model('person_debt').where({id:data.id}).update({status:data.status})
   }
   
   // 编辑个人账单
@@ -140,5 +145,11 @@ module.exports = class extends Base {
             id:data.id
           }).delete()
       }
+  }
+  
+  // 删除债务
+  async delDebtAction(){
+      let data = this.post()
+      await this.model('person_debt').where(data).delete();
   }
 };

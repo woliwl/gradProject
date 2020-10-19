@@ -10,33 +10,52 @@
         <!-- 显示债务列表 -->
         <view class="listTitle">
             <view class="title1">
-                共<text>6</text>笔
+                共<text>{{debtsList.length}}</text>笔
             </view>
             <view class="title2">
                <view class="t2-t">
-                    已还<text>2</text>笔
+                    已还<text class="t_blue">{{refundNum}}</text>笔
                </view>
                <view class="t2-t">
-                    未还<text>4</text>笔
+                    未还<text class="t_red">{{debtsList.length==0?0:debtsList.length-refundNum}}</text>笔
                </view>
             </view>
         </view>
         <view class="debtList">
             <scroll-view scroll-y="true" style="height: 1200rpx;">
-                <view class="listContent">
+                <view class="listNotRefund" v-for="(item1,index1) in debtsList" :key="index1" 
+                v-if="item1.status==0">
                     <view class="text">
-                        <text>2020-10-21</text>向
-                        <text>张某</text>借入
-                        <text>200</text>元
+                        <text>{{item1.date}}</text>向
+                        <text>{{item1.who}}</text>{{item1.type==0?"借入":"借出"}}
+                        <text>{{item1.spend}}</text>元
                     </view>
                     <view class="pbsoa">
-                        <view class="checked">
-                            <checkbox :checked="isChecked" />
+                        <view class="notRefund" @click="refundFun(item1.status,item1.id)">
+                            未还
                         </view>
-                        <view class="icon">
-                             <icon type="cancel" size="26"/>
+                        <view class="icon" @click="delDebt(item1.id)">
+                             <icon type="clear" size="20"/>
                         </view>
                     </view>
+                    </block>
+                </view>
+                <view class="listContent" v-for="(item2,index2) in debtsList" :key="index2" 
+                v-if="item2.status==1">
+                    <view class="text">
+                        <text>{{item2.date}}</text>向
+                        <text>{{item2.who}}</text>{{item2.type==0?"借入":"借出"}}
+                        <text>{{item2.spend}}</text>元
+                    </view>
+                    <view class="pbsoa">
+                        <view class="checked" @click="refundFun(item2.status,item2.id)">
+                            已还
+                        </view>
+                        <view class="icon" @click="delDebt(item2.id)">
+                             <icon type="clear" size="20" />
+                        </view>
+                    </view>
+                    </block>
                 </view>
             </scroll-view>
         </view>
@@ -118,7 +137,9 @@
                 who: '',
                 debtSub: '',
                 spend: null,
-                isChecked:false
+                isChecked:false,
+                debtsList:[],
+                refundNum:0
             };
         },
         computed: {
@@ -196,8 +217,45 @@
                    url:"/bill/person/personDebts",
                    data:param
                }).then(res =>{
-                   console.log(res.data)
+                   this.debtsList = res.data
+                   res.data.forEach(el =>{
+                       if(el.status==1){
+                           this.refundNum +=1
+                       }
+                   })
                })
+            },
+            refundFun(status,id){
+                let param = {status:status,id:id}
+                if(status==0){
+                    param.status = 1
+                }else {
+                    param.status = 0
+                }
+                this.$myRequest({
+                    method:'POST',
+                    url:"/bill/person/debtStatus",
+                    data:param
+                }).then(res =>{
+                    this.getPersonDebt()
+                })
+            },
+            delDebt(id){
+                let param = {id:id}
+                uni.showModal({
+                    title:'',
+                    content:'确认删除该记录吗？'
+                }).then( res =>{
+                    if(res[1].confirm == true){
+                        this.$myRequest({
+                            method:'POST',
+                            url:"/bill/person/delDebt",
+                            data:param
+                        }).then(res =>{
+                            this.getPersonDebt()
+                        })
+                    }
+                })
             }
         },
         onLoad() {
